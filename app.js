@@ -283,8 +283,8 @@ async.forEachOf(connection_list, function (value, key, callback){
     function (err){
         if(err) console.error(err.message);
         // lift the app
-        app.listen(app_port, app_host, function (){
-            console.log('adminMongo listening on host: http://' + app_host + ':' + app_port + app_context);
+        app.listen(process.env.PORT || 4789, '0.0.0.0', function (){
+            console.log('adminMongo listening on host:');
 
             // used for electron to know when express app has started
             app.emit('startedAdminMongo');
